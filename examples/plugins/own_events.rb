@@ -1,4 +1,4 @@
-require 'cinch'
+require 'cakewalk'
 
 class RandomNumberGenerator
   def initialize(bot)
@@ -14,19 +14,19 @@ class RandomNumberGenerator
 end
 
 class DoSomethingRandom
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   listen_to :random_number
   def listen(m, number)
-    Channel("#cinch-bots").send "I got a random number: #{number}"
+    Channel("#cakewalk-bots").send "I got a random number: #{number}"
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_events"
+    c.nick            = "cakewalk_events"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [DoSomethingRandom]
   end

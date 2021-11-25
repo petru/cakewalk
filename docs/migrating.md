@@ -4,7 +4,7 @@
 # Migration Guide
 
 This document explains how to migrate between API incompatible
-versions of Cinch.
+versions of Cakewalk.
 
 ## Migrating from 1.x to 2.x
 
@@ -60,12 +60,12 @@ smell.
 Instead of having methods like `#prefix` double as both attribute
 getter and setter, options can now be set in two different ways: Using
 ordinary attribute setters or using the
-{Cinch::Plugin::ClassMethods#set #set} method.
+{Cakewalk::Plugin::ClassMethods#set #set} method.
 
-#### Cinch 1.x
+#### Cakewalk 1.x
 
     class MyPlugin
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       prefix /^!/
       help "some help message"
@@ -75,10 +75,10 @@ ordinary attribute setters or using the
       end
     end
 
-#### Cinch 2.x, attribute setters
+#### Cakewalk 2.x, attribute setters
 
     class MyPlugin
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       self.prefix = /^!/
       self.help   = "some help message"
@@ -88,10 +88,10 @@ ordinary attribute setters or using the
       end
     end
 
-#### Cinch 2.x, `#set` method
+#### Cakewalk 2.x, `#set` method
 
     class MyPlugin
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       set :prefix, /^!/
       set :help,   "some help message"
@@ -101,10 +101,10 @@ ordinary attribute setters or using the
       end
     end
 
-#### Cinch 2.x, `#set` method, alternative syntax
+#### Cakewalk 2.x, `#set` method, alternative syntax
 
     class MyPlugin
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       set prefix: /^!/,
           help:   "some help message"
@@ -117,11 +117,11 @@ ordinary attribute setters or using the
 
 ### No more automatic matcher with the plugin's name
 
-Cinch does not add a default matcher with the plugin's name anymore.
+Cakewalk does not add a default matcher with the plugin's name anymore.
 If you've been relying on the following to work
 
     class Footastic
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       def execute(m)
         # this will triger on "!footastic"
@@ -131,7 +131,7 @@ If you've been relying on the following to work
 you will have to rewrite it using an explicit matcher:
 
     class Footastic
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       match "footastic"
       def execute(m)
@@ -148,28 +148,28 @@ providing the required methods will always result in an exception.
 ### Programmatically registering plugins
 
 If you're using the API to register plugins on your own, you will have
-to use the new {Cinch::PluginList} class and its methods, instead of
-using `Cinch::Bot#register_plugin` or `Cinch::Bot#register_plugins`,
+to use the new {Cakewalk::PluginList} class and its methods, instead of
+using `Cakewalk::Bot#register_plugin` or `Cakewalk::Bot#register_plugins`,
 which have been removed.
 
-The PluginList instance is available via {Cinch::Bot#plugins}.
+The PluginList instance is available via {Cakewalk::Bot#plugins}.
 
 ## Logging
 
-Logging in Cinch 2.x has been greatly improved. Instead of only
+Logging in Cakewalk 2.x has been greatly improved. Instead of only
 supporting one logger and having all logging-relevant methods in
-{Cinch::Bot}, we've introduced the {Cinch::LoggerList} class, which
-manages an infinite number of loggers. Included with Cinch are the
-{Cinch::Logger::FormattedLogger formatted logger}, known from Cinch
-1.x, and a new {Cinch::Logger::ZcbotLogger Zcbot logger}, a logger
+{Cakewalk::Bot}, we've introduced the {Cakewalk::LoggerList} class, which
+manages an infinite number of loggers. Included with Cakewalk are the
+{Cakewalk::Logger::FormattedLogger formatted logger}, known from Cakewalk
+1.x, and a new {Cakewalk::Logger::ZcbotLogger Zcbot logger}, a logger
 emulating the log output of Zcbot, a format which can be parsed by
 {http://pisg.sourceforge.net/ pisg}.
 
 ### Log levels
 
 The old `@config.verbose` option has been replaced with a finely
-tunable log level system. Each logger has {Cinch::Logger#level its own
-level}, but it is also possible to {Cinch::LoggerList#level= set the
+tunable log level system. Each logger has {Cakewalk::Logger#level its own
+level}, but it is also possible to {Cakewalk::LoggerList#level= set the
 level for all loggers at once}.
 
 The available levels, in ascending order of verbosity, are:
@@ -183,13 +183,13 @@ The available levels, in ascending order of verbosity, are:
 
 ### Methods
 
-All logging related methods (`Cinch::Bot#debug` et al) have been
+All logging related methods (`Cakewalk::Bot#debug` et al) have been
 removed from the Bot class and instead moved to the loggers and the
-{Cinch::LoggerList LoggerList}. If you want to log messages from your
-plugins or handlers, you should use {Cinch::Bot#loggers} to access the
-{Cinch::LoggerList LoggerList} and then call the right methods on
+{Cakewalk::LoggerList LoggerList}. If you want to log messages from your
+plugins or handlers, you should use {Cakewalk::Bot#loggers} to access the
+{Cakewalk::LoggerList LoggerList} and then call the right methods on
 that. Alterntively you can also use the logging-related helper methods
-provided by {Cinch::Helpers}.
+provided by {Cakewalk::Helpers}.
 
 For more information on the logging architecture as well as examples
 on how to use it, check the {file:docs/logging.md Logging readme}.
@@ -210,12 +210,12 @@ will not further be processed in a particular plugin.
 ## Constants
 
 All constants for numeric replies (e.g. `RPL_INFO`) have been moved from
-{Cinch} to {Cinch::Constants}. Thus `Cinch::RPL_INFO` becomes
-{Cinch::Constants::RPL_INFO}, same for all other numeric constants.
+{Cakewalk} to {Cakewalk::Constants}. Thus `Cakewalk::RPL_INFO` becomes
+{Cakewalk::Constants::RPL_INFO}, same for all other numeric constants.
 
 ## Bot configuration
 
-Bot configuration now uses {Cinch::Configuration special classes}
+Bot configuration now uses {Cakewalk::Configuration special classes}
 instead of OpenStructs. Thus, assignments like
 
     configure do |c|
@@ -236,7 +236,7 @@ or
     end
 
 The second version is especially interesting to tools like
-{https://github.com/netfeed/cinchize Cinchize}, which load the
+{https://github.com/netfeed/cakewalkize Cakewalkize}, which load the
 configuration from a YAML file. For more information see
 {file:docs/bot_options.md Bot options}.
 
@@ -248,7 +248,7 @@ See {file:docs/changes.md#removedrenamed-methods What's changed}
 
 ## `on`-handlers now only accepts one pattern
 
-In previous versions, {Cinch::Bot#on} accepted a variable amount of patterns
+In previous versions, {Cakewalk::Bot#on} accepted a variable amount of patterns
 to match against. This feature was rarely used and has hence been
 removed. If you've been using constructs like
 

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-require 'cinch'
+require 'cakewalk'
 
 class HooksDemo
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   hook :pre, method: :generate_random_number
   def generate_random_number(m)
@@ -22,11 +22,11 @@ class HooksDemo
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_hooks"
+    c.nick            = "cakewalk_hooks"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [HooksDemo]
   end

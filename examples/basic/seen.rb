@@ -1,4 +1,4 @@
-require 'cinch'
+require 'cakewalk'
 
 class Seen < Struct.new(:who, :where, :what, :time)
   def to_s
@@ -8,10 +8,10 @@ end
 
 $users = {}
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = 'irc.freenode.org'
-    c.channels = ["#cinch-bots"]
+    c.channels = ["#cakewalk-bots"]
   end
 
   # Only log channel messages

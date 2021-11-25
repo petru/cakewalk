@@ -1,7 +1,7 @@
-require 'cinch'
+require 'cakewalk'
 
 class SomeCommand
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   set :prefix, /^~/
   match "somecommand"
@@ -11,10 +11,10 @@ class SomeCommand
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = "irc.freenode.org"
-    c.channels = ["#cinch-bots"]
+    c.channels = ["#cakewalk-bots"]
     c.plugins.plugins = [SomeCommand]
   end
 end

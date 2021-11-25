@@ -1,4 +1,4 @@
-require 'cinch'
+require 'cakewalk'
 
 # Give this bot ops in a channel and it'll auto voice
 # visitors
@@ -8,12 +8,12 @@ require 'cinch'
 #
 # It starts out disabled.
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_autovoice"
+    c.nick            = "cakewalk_autovoice"
     c.server          = "irc.freenode.org"
     c.verbose         = true
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
   end
 
   on :join do |m|

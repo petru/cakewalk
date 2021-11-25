@@ -1,7 +1,7 @@
 # @title Events
 # @markup kramdown
 
-Cinch provides three kinds of events:
+Cakewalk provides three kinds of events:
 
 1. Events mapping directly to IRC commands
 
@@ -25,7 +25,7 @@ Cinch provides three kinds of events:
 
 All events of the first two kinds behave exactly the same: When they
 get triggered, the handler will be passed a single object, a reference
-to the {Cinch::Message Message object}.
+to the {Cakewalk::Message Message object}.
 
 Example:
 
@@ -43,7 +43,7 @@ get passed objects directly relating to their kind, for example the
 leaving user in case of `:leaving`. This document will describe all
 events of that kind, their signature and example usage.
 
-**Note: Because *all* handlers receive a {Cinch::Message Message}
+**Note: Because *all* handlers receive a {Cakewalk::Message Message}
   object as the first argument, we will only mention and describe
   additional arguments.**
 
@@ -79,7 +79,7 @@ See also {file:docs/events.md#unaway the `:unaway` event}.
 
 The `:ban` event is triggered when a user gets banned in a channel.
 
-One additional argument, a {Cinch::Ban Ban object}, gets passed to
+One additional argument, a {Cakewalk::Ban Ban object}, gets passed to
 the handler.
 
 Example:
@@ -125,11 +125,11 @@ for example the VERSION request.
 `:dcc_send` gets triggered when a user tries to send a file to the
 bot, using the DCC SEND protocol.
 
-One additional argument, a {Cinch::DCC::Incoming::Send DCC::Send
+One additional argument, a {Cakewalk::DCC::Incoming::Send DCC::Send
 object}, gets passed to the handler.
 
-For example usage and a general explanation of DCC in Cinch check
-{Cinch::DCC::Incoming::Send}.
+For example usage and a general explanation of DCC in Cakewalk check
+{Cakewalk::DCC::Incoming::Send}.
 
 
 ## `:dehalfop`, `:deop`, `:deowner`, `:devoice`
@@ -166,8 +166,8 @@ or the network, no matter the reason.
 One additional argument, the leaving user, gets passed to the handler.
 
 Be careful not to confuse the additional argument with
-{Cinch::Message#user}. For example in the case of a kick,
-{Cinch::Message#user} will describe the user kicking someone, not the
+{Cakewalk::Message#user}. For example in the case of a kick,
+{Cakewalk::Message#user} will describe the user kicking someone, not the
 one who is being kicked.
 
 Example:
@@ -262,7 +262,7 @@ See also {file:docs/events.md#away the `:away` event}.
 The `:unban` event is triggered when a user gets unbanned in a
 channel.
 
-One additional argument, a {Cinch::Ban Ban object}, gets passed to the
+One additional argument, a {Cakewalk::Ban Ban object}, gets passed to the
 handler.
 
 

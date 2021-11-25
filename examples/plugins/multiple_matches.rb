@@ -1,7 +1,7 @@
-require 'cinch'
+require 'cakewalk'
 
 class MultiCommands
-  include Cinch::Plugin
+  include Cakewalk::Plugin
   match /command1 (.+)/, method: :command1
   match /command2 (.+)/, method: :command2
   match /^command3 (.+)/, use_prefix: false
@@ -19,11 +19,11 @@ class MultiCommands
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_multi"
+    c.nick            = "cakewalk_multi"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [MultiCommands]
   end

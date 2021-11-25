@@ -1,7 +1,7 @@
-require 'cinch'
+require 'cakewalk'
 
 class Nickchange
-  include Cinch::Plugin
+  include Cakewalk::Plugin
   listen_to :nick
 
   def listen(m)
@@ -11,11 +11,11 @@ class Nickchange
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_nickchange"
+    c.nick            = "cakewalk_nickchange"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [Nickchange]
   end

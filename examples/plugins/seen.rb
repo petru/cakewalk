@@ -1,4 +1,4 @@
-require 'cinch'
+require 'cakewalk'
 
 class Seen
   class SeenStruct < Struct.new(:who, :where, :what, :time)
@@ -7,7 +7,7 @@ class Seen
     end
   end
 
-  include Cinch::Plugin
+  include Cakewalk::Plugin
   listen_to :channel
   match /seen (.+)/
 
@@ -33,10 +33,10 @@ class Seen
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = 'irc.freenode.org'
-    c.channels = ["#cinch-bots"]
+    c.channels = ["#cakewalk-bots"]
     c.plugins.plugins  = [Seen]
   end
 end

@@ -1,13 +1,13 @@
 require 'open-uri'
-require 'cinch'
+require 'cakewalk'
 
 # Automatically shorten URL's found in messages
 # Using the tinyURL API
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = "irc.freenode.org"
-    c.channels = ["#cinch-bots"]
+    c.channels = ["#cakewalk-bots"]
   end
 
   helpers do

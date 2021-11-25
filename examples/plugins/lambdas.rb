@@ -1,7 +1,7 @@
-require 'cinch'
+require 'cakewalk'
 
 class DirectAddressing
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   # Note: the lambda will be executed in the context it has been
   # defined in, in this case the class DirectAddressing (and not an
@@ -22,11 +22,11 @@ class DirectAddressing
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_lambda"
+    c.nick            = "cakewalk_lambda"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [DirectAddressing]
   end

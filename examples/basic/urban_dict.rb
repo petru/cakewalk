@@ -1,4 +1,4 @@
-require 'cinch'
+require 'cakewalk'
 require 'open-uri'
 require 'nokogiri'
 require 'cgi'
@@ -6,11 +6,11 @@ require 'cgi'
 # This bot connects to urban dictionary and returns the first result
 # for a given query, replying with the result directly to the sender
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = "irc.freenode.net"
-    c.nick     = "MrCinch"
-    c.channels = ["#cinch-bots"]
+    c.nick     = "MrCakewalk"
+    c.channels = ["#cakewalk-bots"]
   end
 
   helpers do
@@ -30,6 +30,6 @@ end
 
 bot.start
 
-# injekt> !urban cinch
-# MrCinch> injekt: describing an action that's extremely easy.
+# injekt> !urban cakewalk
+# MrCakewalk> injekt: describing an action that's extremely easy.
 

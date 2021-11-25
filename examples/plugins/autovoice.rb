@@ -1,4 +1,4 @@
-require 'cinch'
+require 'cakewalk'
 
 # Give this bot ops in a channel and it'll auto voice
 # visitors
@@ -7,7 +7,7 @@ require 'cinch'
 # Disable with !autovoice off
 
 class Autovoice
-  include Cinch::Plugin
+  include Cakewalk::Plugin
   listen_to :join
   match /autovoice (on|off)$/
 
@@ -24,11 +24,11 @@ class Autovoice
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_autovoice"
+    c.nick            = "cakewalk_autovoice"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [Autovoice]
   end

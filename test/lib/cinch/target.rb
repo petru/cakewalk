@@ -11,7 +11,7 @@ class TargetTest < TestCase
   end
 
   test 'A short text should not be split' do
-    target = Cinch::Target.new(nil, nil)
+    target = Cakewalk::Target.new(nil, nil)
     short_lorem_ipsum =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' \
       'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
@@ -28,7 +28,7 @@ class TargetTest < TestCase
   end
 
   test 'A long single-byte text should be split at the correct position' do
-    target = Cinch::Target.new(nil, nil)
+    target = Cakewalk::Target.new(nil, nil)
     lorem_ipsum =
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, ' \
       'sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' \
@@ -60,7 +60,7 @@ class TargetTest < TestCase
   end
 
   test 'A long multi-byte text should be split at the correct position' do
-    target = Cinch::Target.new(nil, nil)
+    target = Cakewalk::Target.new(nil, nil)
     japanese_text =
       '私はその人を常に先生と呼んでいた。だからここでもただ先生と書く' \
       'だけで本名は打ち明けない。これは世間を憚かる遠慮というよりも、' \
@@ -88,7 +88,7 @@ class TargetTest < TestCase
   end
 
   test 'A very long multi-byte text should be split at the correct position' do
-    target = Cinch::Target.new(nil, nil)
+    target = Cakewalk::Target.new(nil, nil)
     japanese_text =
       'JAPANESE_TEXT:親譲りの無鉄砲で小供の時から損ばかりしている。' \
       '小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした' \

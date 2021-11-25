@@ -3,25 +3,25 @@ require "helper"
 class MaskTest < TestCase
   DefaultMask = "foo*!bar?@baz"
   def setup
-    @mask = Cinch::Mask.new(DefaultMask.dup)
+    @mask = Cakewalk::Mask.new(DefaultMask.dup)
   end
   test "Two equal masks should be equal" do
-    mask2 = Cinch::Mask.new(DefaultMask.dup)
+    mask2 = Cakewalk::Mask.new(DefaultMask.dup)
 
     assert @mask == mask2
     assert @mask.eql?(mask2)
   end
 
   test "A Mask's hash should depend on the mask" do
-    mask2 = Cinch::Mask.new(DefaultMask.dup)
+    mask2 = Cakewalk::Mask.new(DefaultMask.dup)
 
     assert_equal @mask.hash, mask2.hash
   end
 
   test "A Mask should match a User only if it has matching attributes" do
-    user = Cinch::User.new("foo", nil)
-    user2 = Cinch::User.new("foobar", nil)
-    user3 = Cinch::User.new("barfoo", nil)
+    user = Cakewalk::User.new("foo", nil)
+    user2 = Cakewalk::User.new("foobar", nil)
+    user3 = Cakewalk::User.new("barfoo", nil)
 
     # bar? -> bar, baz -> baz
     user.end_of_whois(user: "bar", host: "baz")
@@ -53,14 +53,14 @@ class MaskTest < TestCase
   end
 
   test "A Mask can be created from Strings" do
-    assert_equal @mask, Cinch::Mask.from(DefaultMask.dup)
+    assert_equal @mask, Cakewalk::Mask.from(DefaultMask.dup)
   end
 
   test "A Mask can be created from objects that have a mask" do
-    mask = Cinch::Mask.new("foo!bar@baz")
-    user = Cinch::User.new("foo", nil)
+    mask = Cakewalk::Mask.new("foo!bar@baz")
+    user = Cakewalk::User.new("foo", nil)
     user.end_of_whois(user: "bar", host: "baz")
-    new_mask = Cinch::Mask.from(user)
+    new_mask = Cakewalk::Mask.from(user)
 
     assert_equal mask, new_mask
   end

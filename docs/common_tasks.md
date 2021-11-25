@@ -3,7 +3,7 @@
 
 # Checking if a user is online
 
-Cinch by itself tries to keep track of the online state of users.
+Cakewalk by itself tries to keep track of the online state of users.
 Whenever it sees someone speak, change their nick or be in a channel the
 bot is also in, it'll set the user to being online. And when a user
 quits, gets killed or cannot be whoised/contacted, its state will be
@@ -18,8 +18,8 @@ point, the user disconnects. The bot won't know that and still track
 the user as online.
 
 If (near-)realtime information about this state is required, one can
-use {Cinch::User#monitor} to automatically monitor the state.
-{Cinch::User#monitor #monitor} uses either the _MONITOR_ feature of modern IRCds or, if
+use {Cakewalk::User#monitor} to automatically monitor the state.
+{Cakewalk::User#monitor #monitor} uses either the _MONITOR_ feature of modern IRCds or, if
 that's not available, periodically runs _WHOIS_ to update the
 information.
 
@@ -28,7 +28,7 @@ Whenever a user's state changes, either the `:online` or the
 example:
 
     class SomePlugin
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       listen_to :connect, method: :on_connect
       listen_to :online,  method: :on_online
@@ -49,7 +49,7 @@ example:
 
 # Sending messages to users and channels beside `m.user` and `m.channel`
 
-Cinch provides {Cinch::Helpers helper methods} to get instances of Channel
+Cakewalk provides {Cakewalk::Helpers helper methods} to get instances of Channel
 and User objects that you can work with:
 
     User('user').send("Hello!")        # Sends a message to user 'user'

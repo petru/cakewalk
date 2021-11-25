@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require 'cinch'
+require 'cakewalk'
 
 class Memo < Struct.new(:nick, :channel, :text, :time)
   def to_s
@@ -10,10 +10,10 @@ end
 
 $memos = {}
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
-    c.channels = ["#cinch-bots"]
+    c.channels = ["#cakewalk-bots"]
   end
 
   on :message do |m|

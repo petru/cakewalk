@@ -30,7 +30,7 @@ Default value
 
 Description
 : The external IP which should be used for outgoing DCC SENDs. For
-more information see {Cinch::DCC::Outgoing::Send}.
+more information see {Cakewalk::DCC::Outgoing::Send}.
 
 ## delay_joins
 Type
@@ -43,7 +43,7 @@ Description
 : Delay joining channels N seconds after connecting, or until the event S fires.
 
 ### Notes
-- This is especially useful in combination with the /cinch-identify/ plugin, which will trigger the `:identified` event.
+- This is especially useful in combination with the /cakewalk-identify/ plugin, which will trigger the `:identified` event.
 
 ## encoding
 Type
@@ -57,7 +57,7 @@ Description
 
 
 ### Notes
-- {file:docs/encodings.md More information on how Cinch handles encoding issues}
+- {file:docs/encodings.md More information on how Cakewalk handles encoding issues}
 
 ## local_host
 Type
@@ -93,7 +93,7 @@ Default value
 : `300`
 
 Descriptipn
-: With every unsuccessful reconnection attempt, Cinch increases the
+: With every unsuccessful reconnection attempt, Cakewalk increases the
   delay between new attempts. This setting is the maximum number of
   seconds to wait between two attempts.
 
@@ -154,14 +154,14 @@ Type
 : String
 
 Default value
-: `"cinch"`
+: `"cakewalk"`
 
 Description
 : The nickname the bot will use.
 
 
 ### Notes
-- If the nickname is in use, Cinch will append underscores until it
+- If the nickname is in use, Cakewalk will append underscores until it
   finds a free nick.
 - You really should set this option instead of using the default.
 
@@ -173,7 +173,7 @@ Default value
 : `nil`
 
 Description
-: This option overrules {file:docs/bot_options.md#nick `nick`} and allows Cinch
+: This option overrules {file:docs/bot_options.md#nick `nick`} and allows Cakewalk
   to try multiple nicks before adding underscores.
 
 
@@ -207,7 +207,7 @@ Description
 
 ### Notes
 - The ping interval should be smaller than
-  {file:docs/bot_options.md#timeoutsread `timeouts.read`} to prevent Cinch from
+  {file:docs/bot_options.md#timeoutsread `timeouts.read`} to prevent Cakewalk from
   falsely declaring a connection dead.
 
 
@@ -283,10 +283,10 @@ Type
 : String
 
 Default value
-: `"cinch"`
+: `"cakewalk"`
 
 Description
-: The real name Cinch will connect with.
+: The real name Cakewalk will connect with.
 
 ## reconnect
 Type
@@ -296,7 +296,7 @@ Default value
 : `true`
 
 Description
-: Should Cinch attempt to reconnect after a connection loss?
+: Should Cakewalk attempt to reconnect after a connection loss?
 
 ## sasl
 
@@ -322,10 +322,10 @@ Description
 
 ### sasl.mechanisms
 Type
-: Array<Cinch::SASL::Mechanism>
+: Array<Cakewalk::SASL::Mechanism>
 
 Default value
-: `[Cinch::SASL::DH_Blowfish, Cinch::SASL::Plain]`
+: `[Cakewalk::SASL::DH_Blowfish, Cakewalk::SASL::Plain]`
 
 Description
 : The SASL mechanisms to use. All mechanisms in the array will be
@@ -414,7 +414,7 @@ Type
 : String
 
 Default value
-: `"cinch"`
+: `"cakewalk"`
 
 Description
 : The user name to use when connecting to the IRC server.

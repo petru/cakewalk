@@ -1,7 +1,7 @@
-require 'cinch'
+require 'cakewalk'
 
 class DiceRoll
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   # [[<repeats>#]<rolls>]d<sides>[<+/-><offset>]
   match(/roll (?:(?:(\d+)#)?(\d+))?d(\d+)(?:([+-])(\d+))?/)
@@ -27,10 +27,10 @@ class DiceRoll
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server = 'irc.freenode.org'
-    c.channels = ['#cinch-bots']
+    c.channels = ['#cakewalk-bots']
     c.plugins.plugins = [DiceRoll]
   end
 end

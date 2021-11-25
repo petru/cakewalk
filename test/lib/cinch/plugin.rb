@@ -1,17 +1,17 @@
 require "helper"
 
-module Cinch
-  class CinchTestPluginWithoutName
-    include Cinch::Plugin
+module Cakewalk
+  class CakewalkTestPluginWithoutName
+    include Cakewalk::Plugin
   end
 end
 
 class PluginTest < TestCase
   def setup
-    @bot = Cinch::Bot.new {
+    @bot = Cakewalk::Bot.new {
       self.loggers.clear
     }
-    @plugin = Class.new { include Cinch::Plugin }
+    @plugin = Class.new { include Cakewalk::Plugin }
     @bot.config.plugins.options = {@plugin => {:key => :value}}
 
     @plugin.plugin_name = "testplugin"
@@ -23,10 +23,10 @@ class PluginTest < TestCase
     matcher = @plugin.matchers.last
 
     assert_equal(1, @plugin.matchers.size, "Should not forget existing matchers")
-    assert_equal Cinch::Plugin::ClassMethods::Matcher.new(/pattern/, true, true, :execute, nil, nil, nil, nil, false), matcher
+    assert_equal Cakewalk::Plugin::ClassMethods::Matcher.new(/pattern/, true, true, :execute, nil, nil, nil, nil, false), matcher
 
     matcher = @plugin.match(/pattern/, use_prefix: false, use_suffix: false, method: :some_method)
-    assert_equal Cinch::Plugin::ClassMethods::Matcher.new(/pattern/, false, false, :some_method, nil, nil, nil, nil, false), matcher
+    assert_equal Cakewalk::Plugin::ClassMethods::Matcher.new(/pattern/, false, false, :some_method, nil, nil, nil, nil, false), matcher
   end
 
   test "should be able to listen to events" do
@@ -160,7 +160,7 @@ class PluginTest < TestCase
   end
 
   test "should have a default name" do
-    assert_equal "cinchtestpluginwithoutname", Cinch::CinchTestPluginWithoutName.plugin_name
+    assert_equal "cakewalktestpluginwithoutname", Cakewalk::CakewalkTestPluginWithoutName.plugin_name
   end
 
   test "should check for the right number of arguments for `set`" do

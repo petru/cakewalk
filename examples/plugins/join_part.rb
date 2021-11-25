@@ -1,7 +1,7 @@
-require 'cinch'
+require 'cakewalk'
 
 class JoinPart
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   match /join (.+)/, method: :join
   match /part(?: (.+))?/, method: :part
@@ -30,11 +30,11 @@ class JoinPart
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
-    c.nick   = "CinchBot"
-    c.channels = ["#cinch-bots"]
+    c.nick   = "CakewalkBot"
+    c.channels = ["#cakewalk-bots"]
     c.plugins.plugins = [JoinPart]
   end
 end

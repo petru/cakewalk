@@ -6,9 +6,9 @@ if ENV["SIMPLECOV"]
   end
 end
 
-unless Object.const_defined? 'Cinch'
+unless Object.const_defined? 'Cakewalk'
   $:.unshift File.expand_path('../../lib', __FILE__)
-  require 'cinch'
+  require 'cakewalk'
 end
 
 require 'minitest/autorun'

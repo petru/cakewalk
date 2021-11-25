@@ -1,19 +1,19 @@
-require 'cinch'
+require 'cakewalk'
 
 class TimedPlugin
-  include Cinch::Plugin
+  include Cakewalk::Plugin
 
   timer 5, method: :timed
   def timed
-    Channel("#cinch-bots").send "5 seconds have passed"
+    Channel("#cakewalk-bots").send "5 seconds have passed"
   end
 end
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
-    c.nick            = "cinch_timer"
+    c.nick            = "cakewalk_timer"
     c.server          = "irc.freenode.org"
-    c.channels        = ["#cinch-bots"]
+    c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [TimedPlugin]
   end

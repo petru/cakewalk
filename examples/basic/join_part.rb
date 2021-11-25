@@ -1,13 +1,13 @@
-require 'cinch'
+require 'cakewalk'
 
 # Who should be able to access these plugins
 $admin = "injekt"
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = "irc.freenode.org"
-    c.nick     = "CinchBot"
-    c.channels = ["#cinch-bots"]
+    c.nick     = "CakewalkBot"
+    c.channels = ["#cakewalk-bots"]
   end
 
   helpers do

@@ -1,9 +1,9 @@
-require 'cinch'
+require 'cakewalk'
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server = "irc.freenode.org"
-    c.channels = ["#cinch-bots"]
+    c.channels = ["#cakewalk-bots"]
   end
 
   on :message, "hello" do |m|

@@ -12,9 +12,9 @@ The following is a list of important documents to read.
 - {file:docs/bot_options.md Bot options}
 - {file:docs/common_tasks.md Common Tasks}
 - {file:docs/common_mistakes.md Common mistakes}
-- {Cinch::DCC DCC}
+- {Cakewalk::DCC DCC}
 - {file:docs/encodings.md Encodings}
 - {file:docs/logging.md Logging}
-- {Cinch::SASL SASL}
-- {Cinch::Formatting Formatting messages}
+- {Cakewalk::SASL SASL}
+- {Cakewalk::Formatting Formatting messages}
 - {file:docs/events.md Events}

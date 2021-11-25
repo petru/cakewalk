@@ -1,13 +1,13 @@
-require 'cinch'
+require 'cakewalk'
 require 'open-uri'
 require 'nokogiri'
 require 'cgi'
 
-bot = Cinch::Bot.new do
+bot = Cakewalk::Bot.new do
   configure do |c|
     c.server   = "irc.freenode.net"
-    c.nick     = "MrCinch"
-    c.channels = ["#cinch-bots"]
+    c.nick     = "MrCakewalk"
+    c.channels = ["#cakewalk-bots"]
   end
 
   helpers do

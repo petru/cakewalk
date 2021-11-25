@@ -5,13 +5,13 @@
 
 Plugins can use the logging facility for logging their own messages,
 either by using the logging related helper methods (#debug, #info, and
-so on) or by directly interfacing with {Cinch::LoggerList}, which is
+so on) or by directly interfacing with {Cakewalk::LoggerList}, which is
 available via `@bot.loggers`.
 
 Example:
 
     class MyPlugin
-      include Cinch::Plugin
+      include Cakewalk::Plugin
 
       match "foo"
       def execute(m)
@@ -23,7 +23,7 @@ Example:
 
 # Logger levels
 
-Cinch uses a priority-based logging system, using the types `:debug`,
+Cakewalk uses a priority-based logging system, using the types `:debug`,
 `:log`, `:info`, `:warn`, `:error` and `:fatal`, each of them
 displaying less information than the previous.
 
@@ -36,12 +36,12 @@ from there on, the levels are rather self-explanatory.
 
 ## Changing the level
 
-The level can be changed for single loggers or all loggers at once, by either using {Cinch::Logger#level=} or {Cinch::LoggerList#level=} respectively.
+The level can be changed for single loggers or all loggers at once, by either using {Cakewalk::Logger#level=} or {Cakewalk::LoggerList#level=} respectively.
 
 Example:
 
-    bot = Cinch::Bot.new { }
-    bot.loggers << Cinch::Logger::FormattedLogger.new(File.open("/tmp/log.log", "a"))
+    bot = Cakewalk::Bot.new { }
+    bot.loggers << Cakewalk::Logger::FormattedLogger.new(File.open("/tmp/log.log", "a"))
     bot.loggers.level = :debug
     bot.loggers.first.level  = :info
 
@@ -53,7 +53,7 @@ logger) to `:info`.
 
 Sometimes it is undesirable to log a message unchanged. For example
 when identifying to the network, passwords might be sent in plain
-text. To prevent such information from appearing in logs, {Cinch::LogFilter log filters}
+text. To prevent such information from appearing in logs, {Cakewalk::LogFilter log filters}
 can be employed.
 
 Log filters take a log message as input and return a new message. This
@@ -63,7 +63,7 @@ Additionally, messages can be dropped entirely by returning nil.
 It is possible to use more than one filter, in which case they will be
 called in order, each acting on the previous filter's output.
 
-Filters can be installed by adding them to {Cinch::LoggerList#filters}.
+Filters can be installed by adding them to {Cakewalk::LoggerList#filters}.
 
 An example (and very simple) password filter might look like this:
 
@@ -80,7 +80,7 @@ An example (and very simple) password filter might look like this:
 This filter will replace the password in all log messages (except for
 exceptions). It could further discriminate by looking at `event` and
 only modify outgoing IRC messages. It could also use the
-{Cinch::Message} class to parse the message and only operate on the
+{Cakewalk::Message} class to parse the message and only operate on the
 actual message component, not channel names and similar. How fancy
 your filtering needs to be depends on you.
 
