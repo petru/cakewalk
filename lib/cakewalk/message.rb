@@ -87,7 +87,7 @@ module Cakewalk
     def initialize(msg, bot)
       @raw     = msg
       @bot     = bot
-      @matches = {:ctcp => {}, :action => {}, :other => {}}
+      @matches = {ctcp: {}, action: {}, other: {}}
       @events  = []
       @time    = Time.now
       @statusmsg_mode = nil
@@ -98,7 +98,12 @@ module Cakewalk
     # @return [void]
     def parse
       match = @raw.match(/(?:^@([^:]+))?(?::?(\S+) )?(\S+)(.*)/)
-      tags, @prefix, @command, raw_params = match.captures
+      if match.captures[3].empty?
+        # no IRCv3 tags 
+        @prefix, @command, raw_params = match.captures
+      else
+        tags, @prefix, @command, raw_params = match.captures
+      end
 
       if @bot.irc.network.ngametv?
         if @prefix != "ngame"
