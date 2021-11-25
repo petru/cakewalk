@@ -7,3 +7,8 @@ pkg
 .ruby-gemset
 .ruby-version
 Gemfile.lock
+/.idea/.gitignore
+/.idea/cakewalk.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
