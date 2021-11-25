@@ -1,15 +1,14 @@
 Cakewalk - The IRC Bot Building Framework
 =====================================
 
-**The Cakewalk project is no longer maintained. No new features will be
-added, and no bugs will be fixed. The repository has been archived. If
-you wish to continue developing Cakewalk, please fork the project. I am
-not accepting new maintainers for this project.**
+Cakewalk is an attempt at reviving a retired IRC bot building framework called **cinch**.
+While the codebase seems to be working just fine with Ruby versions up to 2.7.x, our main
+focus is Ruby 3.x.
 
 Description
 -----------
 
-Cakewalk is an IRC Bot Building Framework for quickly creating IRC bots in
+Cakewalk is an IRC bot building framework for quickly creating IRC bots in
 Ruby with minimal effort. It provides a simple interface based on plugins and
 rules. It's as easy as creating a plugin, defining a rule, and watching your
 profits flourish.
@@ -17,8 +16,7 @@ profits flourish.
 Cakewalk will do all of the hard work for you, so you can spend time creating cool
 plugins and extensions to wow your internet peers.
 
-For general support, join #cakewalk channel on Freenode server (irc://irc.freenode.org/cakewalk) – but
-please don't bring any bots.
+For general support, join #cakewalk channel on the Libera.chat network.
 
 Installation
 ------------
@@ -36,7 +34,7 @@ gem install cakewalk
 Alternatively you can check out the latest code directly from Github
 
 ```
-git clone http://github.com/cakewalkrb/cakewalk.git
+git clone https://github.com/petru/cakewalk.git
 ```
 
 Example
@@ -165,10 +163,6 @@ Contribute
 Love Cakewalk? Love Ruby? Love helping? Of course you do! If you feel like Cakewalk
 is missing that awesome jaw-dropping feature and you want to be the one to
 make this magic happen, you can!
-
-Please note that although we very much appreciate all of your efforts, Cakewalk
-will not accept patches in aid of Ruby 1.8 compatibility. We have no intention
-of supporting Ruby versions below 1.9.1.
 
 Fork the project, implement your awesome feature in its own branch, and send
 a pull request to one of the Cakewalk collaborators. We'll be more than happy
