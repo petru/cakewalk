@@ -48,12 +48,6 @@ module Cakewalk
       return "q" if @ircd == :"ircd-seven"
     end
 
-    # @return [Boolean] True if connected to NgameTV
-    def ngametv?
-      @name == :ngametv
-    end
-
-
     # @return [Boolean] True if we do not know which network we are
     #   connected to
     def unknown_network?

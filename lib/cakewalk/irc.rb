@@ -315,9 +315,6 @@ module Cakewalk
         end
       when "005"
         case @isupport["NETWORK"]
-        when "NGameTV"
-          new_network = :ngametv
-          new_ircd    = :ngametv
         when nil
         else
           new_network = @isupport["NETWORK"].downcase.to_sym

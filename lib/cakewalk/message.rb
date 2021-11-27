@@ -105,12 +105,6 @@ module Cakewalk
         tags, @prefix, @command, raw_params = match.captures
       end
 
-      if @bot.irc.network.ngametv?
-        if @prefix != "ngame"
-          @prefix = "%s!%s@%s" % [@prefix, @prefix, @prefix]
-        end
-      end
-
       @params  = parse_params(raw_params)
       @tags    = parse_tags(tags)
 
