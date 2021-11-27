@@ -307,9 +307,6 @@ module Cakewalk
           when /^(.+?)-?\d+/
             new_ircd = $1.downcase.to_sym
           end
-        elsif msg.params.last == "Your host is jtvchat"
-          new_network = :jtv
-          new_ircd    = :jtv
         end
       when "004"
         if msg.params == %w{irc.tinyspeck.com IRC-SLACK gateway}
@@ -788,11 +785,6 @@ module Cakewalk
       @in_lists << :bans
 
       mask = msg.params[2]
-      if @network.jtv?
-        # on the justin tv network, ban "masks" only consist of the
-        # nick/username
-        mask = "%s!%s@%s" % [mask, mask, mask + ".irc.justin.tv"]
-      end
 
       if msg.params[3]
         by = User(msg.params[3].split("!").first)

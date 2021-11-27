@@ -48,20 +48,11 @@ module Cakewalk
       return "q" if @ircd == :"ircd-seven"
     end
 
-    # @return [Boolean] Does WHOIS only support one argument?
-    def whois_only_one_argument?
-      @name == :jtv
-    end
-
     # @return [Boolean] True if connected to NgameTV
     def ngametv?
       @name == :ngametv
     end
 
-    # @return [Boolean] True if connected to JTV
-    def jtv?
-      @name == :jtv
-    end
 
     # @return [Boolean] True if we do not know which network we are
     #   connected to
