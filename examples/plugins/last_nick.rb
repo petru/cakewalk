@@ -14,7 +14,7 @@ end
 bot = Cakewalk::Bot.new do
   configure do |c|
     c.nick            = "cakewalk_nickchange"
-    c.server          = "irc.freenode.org"
+    c.server          = "irc.libera.chat"
     c.channels        = ["#cakewalk-bots"]
     c.verbose         = true
     c.plugins.plugins = [Nickchange]

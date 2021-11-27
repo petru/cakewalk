@@ -11,7 +11,7 @@ require 'cakewalk'
 bot = Cakewalk::Bot.new do
   configure do |c|
     c.nick            = "cakewalk_autovoice"
-    c.server          = "irc.freenode.org"
+    c.server          = "irc.libera.chat"
     c.verbose         = true
     c.channels        = ["#cakewalk-bots"]
   end

@@ -26,7 +26,7 @@ end
 
 bot = Cakewalk::Bot.new do
   configure do |c|
-    c.server = "irc.freenode.net"
+    c.server = "irc.libera.chat"
     c.nick   = "MrCakewalk"
     c.channels = ["#cakewalk-bots"]
     c.plugins.plugins = [Google]

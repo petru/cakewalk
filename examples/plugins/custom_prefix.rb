@@ -13,7 +13,7 @@ end
 
 bot = Cakewalk::Bot.new do
   configure do |c|
-    c.server   = "irc.freenode.org"
+    c.server   = "irc.libera.chat"
     c.channels = ["#cakewalk-bots"]
     c.plugins.plugins = [SomeCommand]
   end

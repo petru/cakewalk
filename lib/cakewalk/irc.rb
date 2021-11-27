@@ -736,10 +736,10 @@ module Cakewalk
       # We are using the following format: %acfhnru
 
       #                          _         user      host                                 nick      f account  realame
-      # :leguin.freenode.net 354 dominikh_ ~a        ip-88-152-125-117.unitymediagroup.de dominikh_ H 0        :d
-      # :leguin.freenode.net 354 dominikh_ ~FiXato   fixato.net                           FiXato    H FiXato   :FiXato, using WeeChat -- More? See: http://twitter
-      # :leguin.freenode.net 354 dominikh_ ~dominikh cakewalk/developer/dominikh             dominikh  H DominikH :dominikh
-      # :leguin.freenode.net 354 dominikh_ ~oddmunds s21-04214.dsl.no.powertech.net       oddmunds  H 0        :oddmunds
+      # :calcium.libera.chat 354 dominikh_ ~a        ip-88-152-125-117.unitymediagroup.de dominikh_ H 0        :d
+      # :calcium.libera.chat 354 dominikh_ ~FiXato   fixato.net                           FiXato    H FiXato   :FiXato, using WeeChat -- More? See: http://twitter
+      # :calcium.libera.chat 354 dominikh_ ~dominikh cakewalk/developer/dominikh             dominikh  H DominikH :dominikh
+      # :calcium.libera.chat 354 dominikh_ ~oddmunds s21-04214.dsl.no.powertech.net       oddmunds  H 0        :oddmunds
 
       _, channel, user, host, nick, _, account, realname = msg.params
       channel = Channel(channel)

@@ -43,7 +43,7 @@ write in Cakewalk: One that joins a specific channel and responds to
 
     bot = Cakewalk::Bot.new do
       configure do |c|
-        c.server   = "irc.freenode.net"
+        c.server   = "irc.libera.chat"
         c.channels = ["#cakewalk-bots"]
       end
 
@@ -130,7 +130,7 @@ to using the plugin API:
 
     bot = Cakewalk::Bot.new do
       configure do |c|
-        c.server = "irc.freenode.net"
+        c.server = "irc.libera.chat"
         c.channels = ["#cakewalk-bots"]
         c.plugins.plugins = [HelloWorld]
       end
