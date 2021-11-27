@@ -561,7 +561,7 @@ module Cakewalk
 
       if msg.message.downcase == "excess flood" && msg.user == @bot
         @bot.warn ["Looks like your bot has been kicked because of excess flood.",
-                   "If you haven't modified the throttling options manually, please file a bug report at https://github.com/cakewalkrb/cakewalk/issues and include the following information:",
+                   "If you haven't modified the throttling options manually, please file a bug report at https://github.com/petru/cakewalk/issues and include the following information:",
                    "- Server: #{@bot.config.server}",
                    "- Messages per second: #{@bot.config.messages_per_second}",
                    "- Server queue size: #{@bot.config.server_queue_size}"]
