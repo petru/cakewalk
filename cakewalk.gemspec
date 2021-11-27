@@ -8,6 +8,5 @@ Gem::Specification.new do |s|
   s.homepage = 'http://cakewalk.mdr.sh'
   s.required_ruby_version = '>= 2.6.6'
   s.files = Dir['LICENSE', 'README.md', '.yardopts', '{docs,lib,examples}/**/*']
-  s.has_rdoc = "yard"
   s.license = "MIT"
 end
