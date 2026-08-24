@@ -2,8 +2,7 @@ Cakewalk - The IRC Bot Building Framework
 =====================================
 
 Cakewalk is an attempt at reviving a retired IRC bot building framework called **cinch**.
-While the codebase seems to be working just fine with Ruby versions up to 2.7.x, our main
-focus is Ruby 3.x.
+Cakewalk supports Ruby 3.x and 4.x (tested on Ruby 4.0).
 
 Description
 -----------

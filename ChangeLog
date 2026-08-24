@@ -1,3 +1,13 @@
+* Cakewalk 3.0.1, 24 August 2026
+  - Add Ruby 4.0 support (tested on 4.0.6)
+  - Fix Configuration for ostruct 0.6.x (`modifiable`/`new_ostruct_member` removal)
+  - Fix `MiniTest` -> `Minitest` constant (removed in Ruby 4)
+  - Fix examples using removed `URI.escape` and `Kernel#open` (`CGI.escape`/`URI.open`)
+  - Add `ostruct` as runtime dependency
+
+* Cakewalk 3.0.0
+  - Revival of Cinch as Cakewalk, focusing on Ruby 3.x support
+
 * Cinch 2.3.2, 25 April 2016
   - Fix exception and premature timeouts in DCC send
 

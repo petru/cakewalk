@@ -1,3 +1,5 @@
+require "ostruct"
+
 module Cakewalk
   # @since 2.0.0
   class Configuration < OpenStruct
@@ -16,20 +18,26 @@ module Cakewalk
     end
 
     # @return [Hash]
-    def to_h
-      @table.clone
+    def to_h(&block)
+      if block
+        @table.to_h(&block)
+      else
+        @table.dup
+      end
     end
 
     def [](key)
       # FIXME also adjust method_missing
+      key = key.to_sym
       raise ArgumentError, "Unknown option #{key}" unless self.class::KnownOptions.include?(key)
       @table[key]
     end
 
     def []=(key, value)
       # FIXME also adjust method_missing
+      key = key.to_sym
       raise ArgumentError, "Unknown option #{key}" unless self.class::KnownOptions.include?(key)
-      modifiable[new_ostruct_member(key)] = value
+      super(key, value)
     end
 
     # Loads a configuration from a hash by merging the hash with
@@ -43,7 +51,19 @@ module Cakewalk
     # @return [void]
     def load(new_config, from_default = false)
       if from_default
-        @table = self.class.default_config
+        if respond_to?(:update_to_values!, true)
+          send(:update_to_values!, self.class.default_config)
+        else
+          @table = self.class.default_config.dup
+          # Ensure singleton methods exist for old OpenStruct (Ruby < 3.5)
+          self.class.default_config.each_key do |k|
+            if respond_to?(:new_ostruct_member!, true)
+              send(:new_ostruct_member!, k)
+            elsif respond_to?(:new_ostruct_member, true)
+              send(:new_ostruct_member, k)
+            end
+          end
+        end
       end
 
       new_config.each do |option, value|

@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'cakewalk'
-  s.version = '3.0.0'
+  s.version = '3.0.1'
   s.summary = 'An IRC Bot Building Framework'
   s.description = 'A simple, friendly DSL for creating IRC bots'
   s.authors = ['Petru Madar']
@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.required_ruby_version = '>= 2.6.6'
   s.files = Dir['LICENSE', 'README.md', '.yardopts', '{docs,lib,examples}/**/*']
   s.license = "MIT"
+  s.add_dependency 'ostruct'
 end
